@@ -8,8 +8,8 @@ set group=ИИПб-24-2
 set name=VaganovMA
 
 set sprint=5
-set task=0
-set variant=24
+set task=1
+set variant=9
 
 set template=%prefix%.%name%.Sprint%sprint%
 set filename_template=%template%.Task%task%.V%variant%
@@ -79,9 +79,11 @@ echo         Console.WriteLine("* РЕЗУЛЬТАТ:                           
 echo         Console.WriteLine("************************************************************************"); >> %console_class%
 echo. >> %console_class%
 echo         Console.WriteLine() >> %console_class%
-echo         int s = ds.Calculate(numsArray); >> %console_class%
+echo         string res = ds.SaveToFileTextData(x); >> %console_class%
+echo. >> %console_class%
+echo         Console.WriteLine($"Файл "+res); >> %console_class%
+echo         Console.WriteLine($"Создан"); >> %console_class%
 echo         Console.ReadKey(); >> %console_class%
-echo         Console.WriteLine($"Ответ = "); >> %console_class%
 echo     } >> %console_class%
 echo } >> %console_class%
 
@@ -90,7 +92,7 @@ del %classlib_path%\Class1.cs
 set classlib_class=%classlib_path%\DataService.cs
 echo namespace %classlib_class%; >> %classlib_class%
 echo. >> %classlib_class%
-echo using System.IO; > %classlib_class%
+echo using System.IO; >> %classlib_class%
 echo using tyuiu.cources.programming.interfaces.Sprint%sprint%; > %classlib_class%
 echo. >> %classlib_class%
 echo namespace %classlib_path%; >> %classlib_class%
@@ -98,6 +100,12 @@ echo. >> %classlib_class%
 echo public class DataService //: ISprint%sprint%Task%task%V%variant% >> %classlib_class%
 echo { >> %classlib_class%
 echo } >> %classlib_class%
+echo. >> %classlib_class%
+echo string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask%task%.txt"); >> %classlib_class%
+echo double z = (Math.Pow(x, 3) - 8) / (2 * Math.Pow(x, 2)); >> %classlib_class%
+echo z =Math.Round(z, 3); >> %classlib_class%
+echo File.WriteAllText(path, Convert.ToString(z)); >> %classlib_class%
+echo return path; >> %classlib_class%
 
 :: Создаём шаблон для тестов
 del %mstest_path%\UnitTest1.cs
@@ -112,11 +120,11 @@ echo { >> %mstest_class%
 echo    [TestMethod] >> %mstest_class%
 echo    public void ValidExpression()  >> %mstest_class%
 echo    { >> %mstest_class%
-echo     DataService ds = new DataService(); >> %mstest_class%
-echo    int[] numsArray = { 2, 2, 2, 5, 5, 3, 4, 2, 5, 2, 5, 3, 4, 3, 5, 2 }; >> %mstest_class%
-echo    int res = ds.Calculate(numsArray); >> %mstest_class%
-echo    int Wait = 84375; >> %mstest_class%
-echo    Assert.AreEqual(Wait, res); >> %mstest_class%
+echo        string path = @"C:\Users\Ignis\AppData\Local\Temp\OutPutFileTask%task%.txt"; >> %mstest_class%
+echo        FileInfo fileInfo = new FileInfo(path); >> %mstest_class%
+echo        bool fileExit = fileInfo.Exists; >> %mstest_class%
+echo        bool wait = true; >> %mstest_class%
+echo        Assert.AreEqual(true, fileExit); >> %mstest_class%
 echo    } >> %mstest_class%
 echo } >> %mstest_class%
 echo    //не делал!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! >> %mstest_class%
