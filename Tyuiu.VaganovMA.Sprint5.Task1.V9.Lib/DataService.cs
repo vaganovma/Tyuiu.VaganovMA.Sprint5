@@ -16,7 +16,7 @@ public class DataService : ISprint5Task1V9
             for (int x= startValue; x <= stopValue; x++)
         {
             y = Math.Sin(x)+Math.Cos(2*x)/2-1.5*x;
-            y = Math.Round(y, 3);
+            y = Math.Round(y, 2);
              
             strY = Convert.ToString(y);
             if (x !=  stopValue)
