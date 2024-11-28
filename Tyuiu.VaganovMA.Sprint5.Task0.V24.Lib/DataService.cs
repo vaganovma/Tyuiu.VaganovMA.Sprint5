@@ -5,10 +5,10 @@ using System.IO;
 public class DataService : ISprint5Task0V24
 {
     public string SaveToFileTextData(int x)
-    {
-        string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask0.txt";
+    {                                                       //  $@"{Directory.GetCurrentDirectory()}
+        string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask0.txt");
         double z = (Math.Pow(x, 3) - 8) / (2 * Math.Pow(x, 2));
-        z =Math.Round(z);
+        z =Math.Round(z, 3);
         File.WriteAllText(path, Convert.ToString(z));
         return path;
     }
