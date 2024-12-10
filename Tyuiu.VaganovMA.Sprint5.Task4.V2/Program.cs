@@ -1,0 +1,35 @@
+using Tyuiu.VaganovMA.Sprint5.Task4.V2.Lib; 
+ 
+class Program 
+{ 
+    static void Main(string[] args) 
+    { 
+        DataService ds = new DataService();
+        Console.Title = "Спринт #5 | Выполнил: Ваганов. М. А. | ИИПб-24-2"; 
+        Console.WriteLine("************************************************************************"); 
+        Console.WriteLine("* Спринт #5                                                            *"); 
+        Console.WriteLine("* Тема:                                                                *"); 
+        Console.WriteLine("* Задание #4                                                           *"); 
+        Console.WriteLine("* Вариант #2                                                          *"); 
+        Console.WriteLine("* Выполнил: Ваганов Михаил Алексеевич  | ИИПб-24-2                                                           *"); 
+        Console.WriteLine("************************************************************************"); 
+        Console.WriteLine("* УСЛОВИЕ:                                                             *"); 
+        Console.WriteLine("*                                                                      *"); 
+        Console.WriteLine("************************************************************************"); 
+        Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                     *"); 
+        Console.WriteLine("************************************************************************");
+
+        string path = $@"C:\DataSprint5\InPutDataFileTask4V2.txt";
+        Console.WriteLine("данные находятся в файле: "+ path ); 
+       
+        Console.WriteLine("************************************************************************"); 
+        Console.WriteLine("* РЕЗУЛЬТАТ:                                                           *"); 
+        Console.WriteLine("************************************************************************"); 
+  
+        double res = ds.LoadFromDataFile(path); 
+ 
+        Console.WriteLine(res); 
+        //Console.WriteLine($"Создан"); 
+        Console.ReadKey(); 
+    } 
+} 

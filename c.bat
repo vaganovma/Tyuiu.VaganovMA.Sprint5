@@ -8,8 +8,8 @@ set group=ИИПб-24-2
 set name=VaganovMA
 
 set sprint=5
-set task=3
-set variant=11
+set task=4
+set variant=2
 
 set template=%prefix%.%name%.Sprint%sprint%
 set filename_template=%template%.Task%task%.V%variant%
@@ -92,8 +92,8 @@ del %classlib_path%\Class1.cs
 set classlib_class=%classlib_path%\DataService.cs
 echo namespace %classlib_class%; >> %classlib_class%
 echo. >> %classlib_class%
-echo using System.IO; >> %classlib_class%
 echo using tyuiu.cources.programming.interfaces.Sprint%sprint%; > %classlib_class%
+echo using System.IO; >> %classlib_class%
 echo. >> %classlib_class%
 echo namespace %classlib_path%; >> %classlib_class%
 echo. >> %classlib_class%
