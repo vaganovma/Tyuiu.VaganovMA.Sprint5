@@ -8,8 +8,8 @@ set group=ИИПб-24-2
 set name=VaganovMA
 
 set sprint=5
-set task=4
-set variant=2
+set task=5
+set variant=6
 
 set template=%prefix%.%name%.Sprint%sprint%
 set filename_template=%template%.Task%task%.V%variant%
@@ -74,12 +74,16 @@ echo         double x = Convert.ToDouble(Console.ReadLine()); >> %console_class%
 echo         Console.WriteLine("Введите переменную Y:"); >> %console_class%
 echo         int y = int.Parse(Console.ReadLine()!); >> %console_class%
 echo. >> %console_class%
+echo         string path = $@"C:\DataSprint5\InPutDataFileTask%task%V%variant%.txt"; >> %console_class%
+echo         Console.WriteLine("данные находятся в файле: " + path); >> %console_class%
+echo. >> %console_class%
 echo         Console.WriteLine("************************************************************************"); >> %console_class%
 echo         Console.WriteLine("* РЕЗУЛЬТАТ:                                                           *"); >> %console_class%
 echo         Console.WriteLine("************************************************************************"); >> %console_class%
 echo. >> %console_class%
-echo         Console.WriteLine() >> %console_class%
-echo         string res = ds.SaveToFileTextData(x); >> %console_class%
+echo         Console.WriteLine(); >> %console_class%
+echo         string res = ds.SaveToFileTextData(x); >> %console_class% 
+echo         double res = ds.LoadFromDataFile(path); >> %console_class%
 echo. >> %console_class%
 echo         Console.WriteLine($"Файл "+res); >> %console_class%
 echo         Console.WriteLine($"Создан"); >> %console_class%
