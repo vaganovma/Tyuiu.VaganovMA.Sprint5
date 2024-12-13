@@ -35,7 +35,7 @@ public class DataService : ISprint5Task5V6
                                                             //    }
                                                             //}
         res=res/count;
-        return Math.Round(res);
+        return Math.Round(res,3);
     }
 }
 
