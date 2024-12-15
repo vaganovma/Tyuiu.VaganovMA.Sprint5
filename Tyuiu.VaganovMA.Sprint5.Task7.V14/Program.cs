@@ -11,7 +11,7 @@ class Program
         Console.WriteLine("* Тема:                                                                *"); 
         Console.WriteLine("* Задание #7                                                           *"); 
         Console.WriteLine("* Вариант #14                                                          *"); 
-        Console.WriteLine("* Выполнил: Ваганов Михаил Алексеевич  | ИИПб-24-2                                                           *"); 
+        Console.WriteLine("* Выполнил: Ваганов Михаил Алексеевич  | ИИПб-24-2                                             *"); 
         Console.WriteLine("************************************************************************"); 
         Console.WriteLine("* УСЛОВИЕ:                                                             *"); 
         Console.WriteLine("*                                                                      *"); 
@@ -29,9 +29,11 @@ class Program
         Console.WriteLine();
         string res = $@"C:\DataSprint5\InPutDataFileTask7V14.txt";
         res = ds.LoadDataAndSave(path); 
- 
-        Console.WriteLine($"Файл " + res); 
-        Console.WriteLine($"Создан"); 
+
+        Console.WriteLine($"A StRiNg Of CaPITaL LEtTers");
+        Console.WriteLine(res);
+        
+        //Console.WriteLine($"Создан"); A StRiNg Of CaPITaL LEtTers
         Console.ReadKey(); 
     } 
 } 
